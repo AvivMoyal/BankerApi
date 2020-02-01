@@ -2,6 +2,8 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import service.BankerService;
 
@@ -14,13 +16,13 @@ public class BankerController {
         this.bankerService = bankerService;
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "riva";
+    @PostMapping("/check")
+    public boolean checkPriceOnBudget(@RequestBody int campaignId, @RequestBody int auctionId, @RequestBody int price) {
+        return this.bankerService.check(campaignId, auctionId, price);
     }
 
-    @GetMapping("/check")
-    public boolean check() {
-        return  true;
+    @PostMapping("/update")
+    public void updateAuctionLost(@RequestBody int auctionId) {
+        this.bankerService.updateAuctionLost(auctionId);
     }
 }
