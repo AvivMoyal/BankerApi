@@ -1,7 +1,8 @@
 package controller;
 
+import Entity.Auction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +18,12 @@ public class BankerController {
     }
 
     @PostMapping("/check")
-    public boolean checkPriceOnBudget(@RequestBody int campaignId, @RequestBody int auctionId, @RequestBody int price) {
-        return this.bankerService.check(campaignId, auctionId, price);
+    public boolean checkPriceOnBudget(@RequestBody Auction auction) {
+        return this.bankerService.check(auction.getCampaignId(), auction.getId(), auction.getPrice());
     }
 
-    @PostMapping("/update")
-    public void updateAuctionLost(@RequestBody int auctionId) {
-        this.bankerService.updateAuctionLost(auctionId);
+    @PostMapping("/auction/{id}")
+    public void updateAuction(@PathVariable("id") int auctionId, @RequestBody boolean isWon) {
+        this.bankerService.updateAuction(auctionId, isWon);
     }
 }
