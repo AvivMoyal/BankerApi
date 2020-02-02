@@ -13,7 +13,7 @@ Type the command below on terminal
 ```
 mvn instal
 ```
-Make Sure redis serv is running on the default port(6379)
+Make Sure redis server is running on the default port(6379)
 
 Then run the command below 
 ```
