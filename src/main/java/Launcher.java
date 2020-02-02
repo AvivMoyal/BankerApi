@@ -24,12 +24,12 @@ public class Launcher {
     @Bean
     public CommandLineRunner demo(CampaignRepository repository) {
 
-        return (args) -> {/*
+        return (args) -> {
             repository.save(new Campaign(1, 1000000));
             repository.save(new Campaign(2, 2000000));
             repository.save(new Campaign(3, 3000000));
 
             repository.findAll().forEach(c -> System.out.println((c.getId() + ", " + c.getBudget())));
-        */};
+        };
     }
 }

@@ -2,15 +2,12 @@ package service;
 
 import Entity.Auction;
 import Entity.Campaign;
-import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.AuctionRepository;
 import repository.CampaignRepository;
 
-import javax.annotation.PreDestroy;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class BankerService {
